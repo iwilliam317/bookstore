@@ -3,16 +3,18 @@ const mongoose = require('../database');
 const BookSchema = new mongoose.Schema({
   title: {
     type: String,
-    require: true
+    required: true
   },
   author: {
-    type: String
+    type: String,
+    required: true
   },
   release_year: {
-    type: Date
+    type: Number
   },
   category: {
-    type: String
+    type: String,
+    required: true
   }
 });
 
