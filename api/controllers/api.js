@@ -2,6 +2,8 @@ const router = require('express').Router();
 
 const Book = require('../models/book');
 
+const mongoose = require('mongoose');
+
 router.get('/books', async (request, response) => {
   try{
     const book = await Book.find({});
@@ -20,6 +22,23 @@ router.post('/books', async (request, response) => {
       if (error)
         return response.status(400).send({ error: error.message });
       
+      response.send({ result });
+    });
+  }
+  catch (error){
+    response.status(400).send({ error });
+  }
+});
+
+
+router.get('/books/:id', async(request, response) => {
+  try{
+    const id = mongoose.mongo.ObjectId(request.params.id);
+    console.log(id);
+    const book = await Book.find({ _id: id}, (error, result) => {
+      if(error)
+        return response.status(400).send({ error: error.message});
+
       response.send({ result });
     });
   }
