@@ -34,7 +34,7 @@ router.post('/books', async (request, response) => {
 router.get('/books/:id', async(request, response) => {
   try{
     const id = mongoose.mongo.ObjectId(request.params.id);
-    console.log(id);
+    // console.log(id);
     const book = await Book.find({ _id: id}, (error, result) => {
       if(error)
         return response.status(400).send({ error: error.message});
@@ -44,6 +44,18 @@ router.get('/books/:id', async(request, response) => {
   }
   catch (error){
     response.status(400).send({ error });
+  }
+});
+
+router.put('/books/:id', async (request, response) => {
+  try{
+    const id = mongoose.mongo.ObjectId(request.params.id);
+    await Book.update({ _id: id }, request.body, (error, result) => {
+      // do something
+    });
+  }
+  catch (error){
+
   }
 });
 
