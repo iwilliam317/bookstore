@@ -51,7 +51,10 @@ router.put('/books/:id', async (request, response) => {
   try{
     const id = mongoose.mongo.ObjectId(request.params.id);
     await Book.update({ _id: id }, request.body, (error, result) => {
-      // do something
+      if(error)
+            return response.status(400).send({ error: error.message});
+
+          response.send({ result });
     });
   }
   catch (error){
