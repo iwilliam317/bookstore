@@ -58,12 +58,26 @@ router.put('/books/:id', async (request, response) => {
     });
   }
   catch (error){
-
+    response.status(400).send({ error });
   }
 });
 
 router.delete('/books/:id', async (request, response) =>{
-  response.send('route delete')
+  try{
+    const id = mongoose.mongo.ObjectId(request.params.id);
+
+    Book.remove({_id : id}, error => {
+      if(error)
+        return response.status(400).send({ error: error.message});
+
+      response.send({ msg: 'Book successfuly removed! '});
+
+    });
+  }
+  catch (error){
+    response.status(400).send({ error });
+  }
+
 });
 
 module.exports = app => app.use('/api', router);
