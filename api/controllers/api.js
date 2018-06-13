@@ -62,4 +62,8 @@ router.put('/books/:id', async (request, response) => {
   }
 });
 
+router.delete('/books/:id', async (request, response) =>{
+  response.send('route delete')
+});
+
 module.exports = app => app.use('/api', router);
