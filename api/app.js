@@ -5,3 +5,5 @@ app.listen(port, () => {
 });
 
 const apiRouter = require('./controllers/api')(app);
+
+module.exports = app;
