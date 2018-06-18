@@ -40,13 +40,13 @@ describe('API', () => {
       done();
     });
 
-    // xit('should return book created', done => {
-    //   chai.request(app).get('/api/books')
-    //     .end((error, response) => {
-    //       console.log(response.body);
-    //       expect(response.status).to.be(200);
-
-    //     });
-    // });
+    it('should return book created', done => {
+      chai.request(app).get('/api/books')
+        .end((error, response) => {
+          // console.log(response.body.book[0].title);
+          expect(response.body.book[0].title).to.be.equal('My title');
+          done();
+        });
+    });
   });
 });
