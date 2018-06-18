@@ -12,19 +12,41 @@ const Book = require('../models/book');
 
 describe('API', () => {
 
-  before((done)=>{
+  before(done=>{
     Book.create({title: 'My title', author: 'Random Author', release_year: 2018, category: 'Education'});
+
+    console.log('creating books');
     done();
   });
+
+  after(done => {
+    Book.remove({}, error => {
+      if(error)
+        console.log(error)
+
+      console.log('erasing books');
+    });
+    done();
+  });
+
   describe('#GET /api/books', () => {
 
     it('should return status code 200', done => {
       chai.request(app).get('/api/books')
-        .end((error, response) => {
-          expect(response.status).to.be(200);
+        .end((error, response) => {           
+          expect(response.status).to.be.equal(200);
           expect(response.ok).to.be.true;
         });
       done();
     });
+
+    // xit('should return book created', done => {
+    //   chai.request(app).get('/api/books')
+    //     .end((error, response) => {
+    //       console.log(response.body);
+    //       expect(response.status).to.be(200);
+
+    //     });
+    // });
   });
 });
