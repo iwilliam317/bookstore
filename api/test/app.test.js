@@ -56,7 +56,11 @@ describe('API', () => {
     it('should return status code 200', done => {
       Book.find({}, (error, result) => {
         const id = result[0]._id;
-        
+        chai.request(app).get(`/api/books/${id}`)
+          .end((error, response) => {
+            expect(response.status).to.be.equal(200);
+            expect(response.ok).to.be.true;
+          });
       });
       done();
     });
