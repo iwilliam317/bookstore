@@ -45,6 +45,9 @@ describe('API', () => {
         .end((error, response) => {
           // console.log(response.body.book[0].title);
           expect(response.body.book[0].title).to.be.equal('My title');
+          expect(response.body.book[0].author).to.be.equal('Random Author');
+          expect(response.body.book[0].release_year).to.be.equal(2018);
+          expect(response.body.book[0].category).to.be.equal('Education');
           done();
         });
     });
