@@ -19,7 +19,6 @@ describe('API', () => {
     Book.create({title: 'My title', author: 'Random Author', release_year: 2018, category: 'Education'}, (error, result) => {
       book = result;
     });
-    // console.log('creating books');
     done();
   });
 
@@ -27,8 +26,6 @@ describe('API', () => {
     Book.remove({}, error => {
       if(error)
         console.log(error)
-
-      // console.log('erasing books');
     });
     done();
   });
