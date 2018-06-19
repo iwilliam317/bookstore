@@ -10,12 +10,16 @@ const app = require('../app.js');
 
 const Book = require('../models/book');
 
+
 describe('API', () => {
 
-  before(done=>{
-    Book.create({title: 'My title', author: 'Random Author', release_year: 2018, category: 'Education'});
+  let book;
 
-    console.log('creating books');
+  before(done=>{
+    Book.create({title: 'My title', author: 'Random Author', release_year: 2018, category: 'Education'}, (error, result) => {
+      book = result;
+    });
+    // console.log('creating books');
     done();
   });
 
@@ -24,7 +28,7 @@ describe('API', () => {
       if(error)
         console.log(error)
 
-      console.log('erasing books');
+      // console.log('erasing books');
     });
     done();
   });
@@ -54,28 +58,24 @@ describe('API', () => {
 
   describe('#GET /api/books/:id', ()=> {
     it('should return status code 200', done => {
-      Book.find({}, (error, result) => {
-        const id = result[0]._id;
+        const id = book._id;
         chai.request(app).get(`/api/books/${id}`)
           .end((error, response) => {
             expect(response.status).to.be.equal(200);
             expect(response.ok).to.be.true;
           });
-      });
       done();
     });
   });
 
   describe('#PUT /api/books/:id', () => {
     it('should return a status code 200', done => {
-      Book.find({}, (error, result) => {
-        const id = result[0]._id;
+        const id = book._id;
         chai.request(app).get(`/api/books/${id}`)
           .end((error, response) => {
             expect(response.status).to.be.equal(200);
             expect(response.ok).to.be.true;
           });
-      });
       done();
     });
   });
