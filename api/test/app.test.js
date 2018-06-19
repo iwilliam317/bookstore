@@ -43,13 +43,22 @@ describe('API', () => {
     it('should return book created', done => {
       chai.request(app).get('/api/books')
         .end((error, response) => {
-          // console.log(response.body.book[0].title);
           expect(response.body.book[0].title).to.be.equal('My title');
           expect(response.body.book[0].author).to.be.equal('Random Author');
           expect(response.body.book[0].release_year).to.be.equal(2018);
           expect(response.body.book[0].category).to.be.equal('Education');
           done();
         });
+    });
+  });
+
+  describe('#GET /api/books/:id', ()=> {
+    it('should return status code 200', done => {
+      Book.find({}, (error, result) => {
+        const id = result[0]._id;
+        
+      });
+      done();
     });
   });
 });
