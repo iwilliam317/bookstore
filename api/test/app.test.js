@@ -90,4 +90,8 @@ describe('API', () => {
       done();      
     });
   });
+
+  describe('#DELETE /api/books/:id', () =>{
+    //todo
+  });
 });
