@@ -92,6 +92,9 @@ describe('API', () => {
   });
 
   describe('#DELETE /api/books/:id', () =>{
-    //todo
+    
+    xit('deletes specific book', done => {
+      done();
+    });
   });
 });
