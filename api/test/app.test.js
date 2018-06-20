@@ -22,14 +22,6 @@ describe('API', () => {
     done();
   });
 
-  after(done => {
-    Book.remove({}, error => {
-      if(error)
-        console.log(error)
-    });
-    done();
-  });
-
   describe('#GET /api/books', () => {
 
     it('should return status code 200', done => {
@@ -92,9 +84,23 @@ describe('API', () => {
   });
 
   describe('#DELETE /api/books/:id', () =>{
-    
-    xit('deletes specific book', done => {
-      done();
+    it('deletes specific book', done => {
+        const id = book._id;
+        chai.request(app).delete(`/api/books/${id}`)
+          .end((error, response) => {
+            expect(response.status).to.be.equal(200);
+            expect(response.ok).to.be.true;
+          });
+      done(); 
     });
   });
+
+  after(done => {
+    Book.remove({}, error => {
+      if(error)
+        console.log(error)
+    });
+    done();
+  });
+
 });
