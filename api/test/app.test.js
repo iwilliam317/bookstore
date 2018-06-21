@@ -73,7 +73,6 @@ describe('API', () => {
         chai.request(app).put(`/api/books/${id}`)
           .end((error, response) => {
             Book.update({ _id: id }, { title: 'My updated title' }, (error, result) => {
-              // console.log(result);
               expect(result.ok).to.be.equal(1);
               expect(result.nModified).to.be.equal(1);
               expect(result.n).to.be.equal(1);
