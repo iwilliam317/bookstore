@@ -5,3 +5,5 @@ API is using the following structure:
 * database: for database connection
 * models: for models
 * test: for testing API
+
+* app: application/api
