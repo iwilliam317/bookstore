@@ -1,8 +1,4 @@
-# Bookstore
+# Bookstore - API
 
-Bookstore is a client-server application for managing books.
+Backend - CRUD for managing books.
 
-* api: CRUD for managing books
-* client: web application 
-
-Tests using mocha and chai
