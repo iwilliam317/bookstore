@@ -29,8 +29,9 @@ describe('API', () => {
                 .end((error, response) => {           
                     expect(response.status).to.be.equal(200);
                     expect(response.ok).to.be.true;
+                    done();
                 });
-            done();
+            
         });
 
         it('should returns book created', done => {
@@ -52,8 +53,9 @@ describe('API', () => {
                 .end((error, response) => {
                     expect(response.status).to.be.equal(200);
                     expect(response.ok).to.be.true;
+                    done();                    
                 });
-            done();
+            
         });
     });
 
@@ -64,8 +66,9 @@ describe('API', () => {
                 .end((error, response) => {
                     expect(response.status).to.be.equal(200);
                     expect(response.ok).to.be.true;
+                    done();
                 });
-            done();
+            
         });
 
         it('should updates the book', done => {
@@ -76,9 +79,10 @@ describe('API', () => {
                         expect(result.ok).to.be.equal(1);
                         expect(result.nModified).to.be.equal(1);
                         expect(result.n).to.be.equal(1);
+                        done();
                     });
                 });
-            done();      
+                  
         });
     });
 
@@ -89,8 +93,9 @@ describe('API', () => {
                 .end((error, response) => {
                     expect(response.status).to.be.equal(200);
                     expect(response.ok).to.be.true;
+                    done();
                 });
-            done(); 
+             
         });
     });
 
@@ -100,6 +105,7 @@ describe('API', () => {
                 console.log(error);
         });
         done();
+        
     });
 
 });
