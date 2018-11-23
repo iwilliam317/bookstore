@@ -102,7 +102,7 @@ describe('API', () => {
     after(done => {
         Book.remove({}, error => {
             if(error)
-                console.log(error);
+                throw(error);
         });
         done();
         
