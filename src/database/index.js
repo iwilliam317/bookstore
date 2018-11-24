@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/bookstore');
+const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/bookstore';
+mongoose.connect(url);
 
 mongoose.Promise = global.Promise;
 
