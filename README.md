@@ -4,9 +4,9 @@ Academic project for managing books.
 
 ## Structure
 
-* **Backend**: provides the logical algorithm - *This repository*
+* **Backend**: provides the logical algorithm (*This repository*)
 
-* **Frontend**: provides the visual interface for users - *In construction*
+* **Frontend**: provides the visual interface for users (*In construction*)
 
 ## Tools
 
