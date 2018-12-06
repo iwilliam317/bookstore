@@ -9,7 +9,7 @@ Separate in two responsabilities:
 **Frontend**: provides the visual interface for users - *In construction*
 
 Using the following tools:
-* Codeship
-* Heroku
+* [Codeship](https://codeship.com/)
+* [Heroku](https://heroku.com)
 
 Link: https://will-bookstore.herokuapp.com/api/books
