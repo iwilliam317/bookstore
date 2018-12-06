@@ -2,14 +2,15 @@
 
 Academic project for managing books. 
 
-Separate in two responsabilities: 
+## Structure
 
-**Backend**: provides the logical algorithm - *This repository*
+* **Backend**: provides the logical algorithm - *This repository*
 
-**Frontend**: provides the visual interface for users - *In construction*
+* **Frontend**: provides the visual interface for users - *In construction*
 
-Using the following tools:
-* [Codeship](https://codeship.com/)
-* [Heroku](https://heroku.com)
+## Tools
+
+* **[Codeship](https://codeship.com/)**
+* **[Heroku](https://heroku.com)**
 
 Available at: https://will-bookstore.herokuapp.com/api/books
