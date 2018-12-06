@@ -12,4 +12,4 @@ Using the following tools:
 * [Codeship](https://codeship.com/)
 * [Heroku](https://heroku.com)
 
-Link: https://will-bookstore.herokuapp.com/api/books
+Available at: https://will-bookstore.herokuapp.com/api/books
